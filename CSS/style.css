@@ -1,0 +1,22 @@
+#gallery_area {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 100px;
+    gap: 2%;
+    margin-bottom: 100px;
+    justify-content: center;
+}
+
+#gallery_area img {
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#gallery_area img:hover {
+    transform: scale(1.1);
+}

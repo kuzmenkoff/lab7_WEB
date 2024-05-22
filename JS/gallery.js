@@ -55,14 +55,21 @@ function OutputImages() {
     images.forEach(image => {
         const img = document.createElement('img');
         img.src = image.preview;
+        img.dataset.original = image.original
+        img.alt = image.description
         container.appendChild(img);
+    });
 
-        img.addEventListener('click', function(event) {
-            console.log(image.original);
+    container.addEventListener('click', function(event) {
+        const target = event.target;
+        if (target.tagName === 'IMG') {
+            const originalSrc = target.dataset.original;
+            const description = target.alt;
+            console.log(originalSrc);
             const instance = basicLightbox.create(`
-                    <img src="${image.original}" alt="${image.description}">
+                <img src="${originalSrc}" alt="${description}">
             `);
             instance.show();
-        });
+        }
     });
 }
